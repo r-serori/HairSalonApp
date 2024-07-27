@@ -1,0 +1,6 @@
+[submodule "client"]
+	path = client
+	url = https://github.com/r-serori/hairsalon-app-client
+[submodule "server"]
+	path = server
+	url = https://github.com/r-serori/hairsalon_app
