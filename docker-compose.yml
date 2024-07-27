@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   frontend:
-    build: ./client
+    build: ./client 
+    dockerfile: Dockerfile
     ports:
       - '80:3000' # ポートを3000から80に変更
     environment:
@@ -14,6 +15,7 @@ services:
 
   backend:
     build: ./server
+    dockerfile: Dockerfile
     ports:
       - '80:8000' # ポートを8000から80に変更
     environment:
