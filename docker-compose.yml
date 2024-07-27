@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: ./client
+    ports:
+      - '80:3000' # ポートを3000から80に変更
+    environment:
+      - NODE_ENV=production # 環境をdevelopmentからproductionに変更
+    depends_on:
+      - backend
+
+  backend:
+    build: ./server
+    ports:
+      - '80:8000' # ポートを8000から80に変更
+    environment:
+      - APP_ENV=production # 環境をdevelopmentからproductionに変更
+      - DB_CONNECTION=mysql
+      - DB_HOST=k2pdcy98kpcsweia.cbetxkdyhwsb.us-east-1.rds.amazonaws.com # 本番環境用のホスト名
+      - DB_PORT=3306
+      - DB_DATABASE=gra2kza9fng9g81u # 本番環境用のデータベース名
+      - DB_USERNAME=xm5celsn20ki8xka # 本番環境用のユーザー名
+      - DB_PASSWORD=nbpkpace3of7kqe3 # 本番環境用のパスワード
+
+
+volumes:
+  db_data:
