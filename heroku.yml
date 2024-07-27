@@ -1,0 +1,11 @@
+build:
+  docker:
+    web: Dockerfile
+  config:
+    ENVIRONMENT: production
+
+release:
+  command: npm run build
+
+run:
+  web: npm start
