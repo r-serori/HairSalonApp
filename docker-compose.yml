@@ -6,7 +6,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - '3000:80' # ポートを3000から80に変更
+      - '3000:3000' 
     environment:
       - NODE_ENV=production # 環境をdevelopmentからproductionに変更
       - NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL} # 本番環境用のバックエンドURL
@@ -60,7 +60,7 @@ services:
       - SESSION_DRIVER=${SESSION_DRIVER} # 本番環境用のSESSION_DRIVER
 
     volumes:
-      - /var/www/html
+         - ./server:/var/www/html
 
 volumes:
   db_data:
