@@ -55,6 +55,9 @@ RUN echo "deb http://ftp.de.debian.org/debian/ bookworm main" > /etc/apt/sources
   git \
   && docker-php-ext-install zip pdo pdo_mysql
 
+# 環境変数をコピー
+COPY .env /var/www/html
+
 # クライアントのビルド成果物をコピー
 COPY --from=client-build /app/client/.next /var/www/html/client
 

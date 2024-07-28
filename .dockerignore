@@ -7,7 +7,6 @@ client/.next/cache
 client/.env
 
 server/vendor
-server/.env
 server/.git
 server/.gitignore
 server/.phpunit.result.cache

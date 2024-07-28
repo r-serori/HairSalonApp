@@ -20,14 +20,14 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build . -t your-docker-image-name
+        run: docker build . -t rserori/hairsalonappserori
 
       - name: Log in to Heroku Container Registry
         run: heroku container:login
 
       - name: Push Docker image to Heroku Container Registry
         run: |
-          heroku container:push web --app your-heroku-app-name
+          heroku container:push web --app hair-salon-app-serori
 
       - name: Release Docker image on Heroku
-        run: heroku container:release web --app your-heroku-app-name
+        run: heroku container:release web --app hair-salon-app-serori
