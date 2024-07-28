@@ -2,10 +2,11 @@ version: '3.8'
 
 services:
   frontend:
-    build: ./client 
+    build: 
+    context: ./client
     dockerfile: Dockerfile
     ports:
-      - '80:3000' # ポートを3000から80に変更
+      - '3000:3000' # ポートを3000から80に変更
     environment:
       - NODE_ENV=production # 環境をdevelopmentからproductionに変更
       - NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL} # 本番環境用のバックエンドURL
@@ -14,10 +15,11 @@ services:
       - backend
 
   backend:
-    build: ./server
+    build:  
+    context: ./server
     dockerfile: Dockerfile
     ports:
-      - '80:8000' # ポートを8000から80に変更
+      - '8000:8000' # ポートを8000から80に変更
     environment:
       - APP_DEBUG=false # デバッグモードをfalseに変更
       - APP_ENV=production # 環境をdevelopmentからproductionに変更
@@ -58,8 +60,8 @@ services:
       - SESSION_LIFETIME=${SESSION_LIFETIME} # 本番環境用のSESSION_LIFETIME
       - SESSION_DRIVER=${SESSION_DRIVER} # 本番環境用のSESSION_DRIVER
       - SESSION_SECURE_KEY=${SESSION_SECURE_KEY} # 本番環境用のSESSION_SECURE_KEY
-
-
+  volumes:
+      - db_data:/var/lib/mysql
 
 volumes:
   db_data:
